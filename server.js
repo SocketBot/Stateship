@@ -4,20 +4,20 @@ var express = require('express'),
     MandrillCtrl = require('./lib/controllers/mandrillCtrl');
 
 var app = express(),
-    port = process.env.PORT_NUMBER || 5000;
+var port = process.env.PORT || 5000;
 
 var CORS = function(req, res, next){
-    if(req.headers.origin === 'http://localhost:5000' || req.headers.origin === 'http://stateship.org' ||
-        req.headers.origin === 'http://www.stateship.org' || req.headers.origin === "http://54.204.5.167"){
+    if(req.headers.origin === 'http://localhost:5000' || req.headers.origin === 'http://stateship.herokuapp.com' ||
+        req.headers.origin === 'http://stateship.herokuapp.com' || req.headers.origin === "http://54.204.5.167"){
         next();
     }
-    else if(req.headers.referer === 'http://localhost:5000/' || req.headers.referer === 'http://stateship.org/' ||
-        req.headers.referer === 'http://www.stateship.org/' || req.headers.referer === "http://54.204.5.167/"){
+    else if(req.headers.referer === 'http://localhost:5000/' || req.headers.referer === 'http://stateship.herokuapp.com/' ||
+        req.headers.referer === 'http://stateship.herokuapp.com/' || req.headers.referer === "http://54.204.5.167/"){
         next();
     }
     else {
         res.status(401).json("Email requests must be made from stateship.org");
-    }
+    }http://stateship.herokuapp.com/
 };
 
 app.use(bodyParser.json());
