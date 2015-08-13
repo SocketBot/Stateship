@@ -3,7 +3,7 @@ var express = require('express'),
     civic = require('./lib/services/civicService'),
     MandrillCtrl = require('./lib/controllers/mandrillCtrl');
 
-var app = express(),
+var app = express();
 var port = process.env.PORT || 5000;
 
 var CORS = function(req, res, next){
@@ -17,7 +17,7 @@ var CORS = function(req, res, next){
     }
     else {
         res.status(401).json("Email requests must be made from stateship.org");
-    }http://stateship.herokuapp.com/
+    }
 };
 
 app.use(bodyParser.json());
